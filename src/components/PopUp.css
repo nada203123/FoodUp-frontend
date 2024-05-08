@@ -1,0 +1,31 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+  padding: 20px;
+  border: 1px solid #080808;
+  border-radius: 5px;
+  z-index: 10;
+  width:600px;
+  
+  }
+  .btnPopup{
+    margin-left: 550px;
+    width: 50px;
+    height: 30px;
+   
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: rgb(149, 139, 224);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    
+  }
+  .msg{
+    color: #080808;
+    font-size: 30px;
+  }
