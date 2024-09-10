@@ -1,0 +1,97 @@
+.category-slider {
+  text-align: center;
+  padding-inline: 40px;
+}
+
+.welcome-text {
+  margin-bottom: 20px;
+}
+
+.slider-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.category-card {
+  position: relative;
+  scroll-snap-align: start;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+.category-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.category-details {
+  padding: 10px;
+}
+
+.category-name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold; 
+  color: #333; 
+  text-transform: capitalize; 
+  
+}
+.link {
+  text-decoration: none;
+}
+.edit-category-button {
+  position: absolute;
+  top: 10px;
+  right: 44px;
+  background-color: rgba(244, 231, 156);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.delete-category-button {
+  position:absolute;
+  top: 10px;
+  right: 10px;
+ 
+  background-color: rgba(244, 231, 156);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  opacity:0 ;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.category-card:hover .edit-category-button,
+.category-card:hover .delete-category-button {
+  opacity: 1;
+}
+
+.edit-icon {
+  font-size: 16px;
+}
+.delete-icon {
+  font-size: 16px;
+}

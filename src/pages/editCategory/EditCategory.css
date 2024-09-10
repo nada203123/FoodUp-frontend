@@ -1,0 +1,77 @@
+.edit-category-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+ 
+}
+.edit-category-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    padding: 20px;
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: #fcfae2; 
+  width: 650px; 
+  margin-left: 200px;
+  margin-top:130px;
+  }
+  .edit-category-container button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: rgb(244, 231, 156);
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .edit-category-container button:hover {
+    background-color: rgb(242, 225, 127);
+  }
+  
+  .edit-category-container div {
+    margin-bottom: 10px;
+  }
+  
+  .edit-category-container input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    background-color: #fff;
+  }
+  
+  .button-containerE {
+     
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+  }
+  
+  .button-container button {
+    margin-right: 10px;
+  }
+  
+  .success-message {
+    color: green;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  .image-container img {
+    width: 400px;
+    margin-left: 80px;
+    margin-top:105px;
+    height: 400px;
+   
+    
+   
+    
+  }
+ 
+  

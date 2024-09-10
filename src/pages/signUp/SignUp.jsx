@@ -1,7 +1,7 @@
 import React,{ useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Navigationbar from '../../components/Navbar';
-import signUpImg from "../../assets/signUp.jpg"
+import signUpImg from "../../assets/signUp.png"
 import './SignUp.css'
 import axios from "axios";
 import useEmailValidation from '../../utilities/hooks/useEmailValidation';
@@ -12,7 +12,8 @@ import { FaInfoCircle, FaKey, FaMailBulk, FaShieldAlt, FaArrowAltCircleRight } f
 const SignUp = () => {
   const navigate = useNavigate()
   const validateEmail = useEmailValidation() 
-  const [fullName,setFullName]=useState("")
+  const [firstName,setFirstName]=useState("")
+  const [lastName,setLastName]=useState("")
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   const [confirmPassword,setConfirmPassword]=useState("")
@@ -46,15 +47,16 @@ const SignUp = () => {
       } else{
         setPasswordMatchError("");
       }
-      axios.post("http://localhost:5198//api/users/register", { username: fullName, email: email, password: password })
+      axios.post("http://localhost:5198/api/users/register", { FirstName: firstName,LastName:lastName, Email: email, Password: password, passwordConfirmation:password,Gender:"male" })
       .then((response) => {
         console.log("🚀 ~ handleSignUp ~ response:", response)
-      if (response.status === 201) {
+      if (response.status === 200) {
+       
           return navigate("/VerifyAccount", { state: { email } })
       }
       })
         .catch((error) => {
-            alert(error.response.data.error);
+            alert(error);
             return;
         });
 
@@ -70,7 +72,8 @@ const SignUp = () => {
         <div className="right-side">
         <h2 className="signup-title">Sign Up</h2>
         <div className='form'> 
-          <Input type={"text"} icon={<FaInfoCircle size={24} />} onChange={(e) => setFullName(e.target.value)} value={fullName} placeholder={"Full Name"} />
+          <Input type={"text"} icon={<FaInfoCircle size={24} />} onChange={(e) => setFirstName(e.target.value)} value={firstName} placeholder={"First Name"} />
+          <Input type={"text"} icon={<FaInfoCircle size={24} />} onChange={(e) => setLastName(e.target.value)} value={lastName} placeholder={"Last Name"} />
           <Input type={"text"} icon={<FaMailBulk size={24} />} onChange={(e) => setEmail(e.target.value)} value={email} placeholder={"Email Address"} />
           {emailError && <span style={{ fontSize:'12px',color: 'red' }}>{emailError}</span>}
           <Input type={"password"} icon={<FaKey size={24} />} onChange={(e) => setPassword(e.target.value)} value={password} placeholder={"Password"} />

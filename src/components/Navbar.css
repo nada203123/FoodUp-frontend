@@ -20,7 +20,7 @@ body {
 
 .navbar {
   height: 60px;
-  background-color: rgb(149, 139, 224);
+  background-color: rgb(244, 231, 156);
   position: relative;
   margin-bottom: 0;
   padding: 0px;
@@ -104,6 +104,4 @@ body {
 .nav-link:hover {
   color: #d0d0e4; /* Change color on hover */
 }
-.IoIosLogOut{
-   margin-top: 0pt
-}
+

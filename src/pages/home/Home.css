@@ -1,0 +1,40 @@
+.add-category-link {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 999;
+  }
+  
+  .add-category-button {
+    background-color: rgb(149, 139, 224);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .plus-icon {
+    font-size: 24px;
+  }
+  
+  .add-category-button:hover::after {
+    content: "Add Category";
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 10px);
+    padding: 6px 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    transform: translateY(-50%);
+  }
+  
+  .add-category-button:hover .plus-icon {
+    display: none;
+  }

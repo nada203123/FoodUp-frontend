@@ -1,0 +1,121 @@
+.edit-product-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.right-sidePe img {
+  width: 400px;
+  
+  margin-top:105px;
+  height: 400px;
+ 
+}
+.right-ImagePe{
+  margin-bottom: 80px;
+  margin-right: 4px;
+  margin-top: 40px;
+  
+  width:700px;
+  height : 500px;
+}
+.left-sidePe {
+    
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 20px;
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: #fcfae2; 
+  width: 550px; 
+  margin-right: 200px;
+  margin-top:30px;
+  
+}
+.titleeditP{
+  margin-bottom: 40px;
+  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.form-groupPe {
+  
+  display: flex;
+  flex-direction: column;
+  
+  
+}
+.NPe{
+  display: flex;
+  margin-right: 90px;
+  
+}
+.edit-product-container input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.edit-product-container textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.button-containere{
+  display: flex;
+  
+  justify-content: center;
+  
+  bottom: 20px;
+  
+  
+} 
+
+.buttonE {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: rgb(244, 231, 156);
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 100px;
+}
+.button:hover {
+  background-color: rgb(242, 225, 127);
+}
+
+  
+  .edit-product-container div {
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  
+  .edit-product-container div:last-child {
+    margin-top: 20px;
+  }
+  
+  .edit-product-container div:last-child div {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .button-containere {
+    display: flex;
+    flex-direction: row; 
+    margin-top: 10px; 
+  }
+  
+  .button-containere button {
+    margin-right: 10px;
+  }
+  
+  
+  

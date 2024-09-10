@@ -2,8 +2,8 @@ import "./VerifyAccount.css";
 import { useState} from "react";
 import VerifyAccount from "../../assets/VerifyAccount.png"
 import { useLocation,useNavigate } from 'react-router-dom';
+import axios from "axios";
 import Navigationbar from '../../components/Navbar';
-
  
 
 
@@ -16,16 +16,23 @@ function Verification(){
 
     function verifyAccount (event) {
         event.preventDefault();
-        
-        if (otpcode.trim() === "" || isNaN(otpcode)) {
-          alert("Please enter a valid OTP code");
-          return; 
-      }
-      axios.post("http://localhost:4000/auth/verifyAccount" , {email:email,inputCode: otpcode})
-        .then((response)=>
 
-        navigation("/SignIn")   
-        )
+      axios.post("http://localhost:5198/api/users/verify-otp" , {Email:email,Otp: otpcode})
+        .then((response)=> {
+          console.log("Response data:", response.data);
+          if (response.data.status === "Success") {
+            
+            alert("OTP verified successfully. You can now sign in.");
+           
+
+            
+            navigation("/SignIn");
+        } else {
+            // Handle error response
+            const errorMessage = response.data.Message || "Unknown error occurred during OTP verification.";
+            console.error("OTP verification failed:", errorMessage);
+        }   
+     } )
         .catch((error)=> {
          
             console.log(error.message)

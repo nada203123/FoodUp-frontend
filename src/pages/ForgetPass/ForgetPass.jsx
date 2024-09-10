@@ -4,32 +4,41 @@ import axios from "axios";
 import Navigationbar from '../../components/Navbar';
 import ForgetPass from "../../assets/ForgetPass.png";
 import PopUp from '../../components/PopUp';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function ForgetPassword(){
     const [email, setEmail] = useState(""); 
     const [modalVisible, setModalVisible] = useState(false); // State for popup visibility
   const [modalMessage, setModalMessage] = useState('');
-    //let navigation = useNavigate();
+    let navigation = useNavigate();
 
-    function forgetPass(event) {
+  async  function forgetPass(event) {
         event.preventDefault() ;
         if (email.trim() === "") {
           alert("Email address is required.");
           return; // Don't proceed with the form submission
         }
-        
-        axios.post("http://localhost:4000/auth/forgetPassword", { email: email })
-        .then((response) => {
-          setModalMessage('Please check your email.');
-          setModalVisible(true);
+        console.log("🚀 ~ forgetPass ~ email:", email)
+try {
+  const response = await axios.post("http://localhost:5198/api/users/reset-password", { Email: email })
+        console.log("🚀 ~ forgetPass ~ response:", response)
+        if (response.status===200){
+          navigation("/ResetPass")
+        }
+        /*.then((response) => {
+          alert('Please check your email.');
+          
           })
           .catch((error) => {
-            setModalMessage('Email not found.');
-            setModalVisible(true);
+            alert('Email not found.');
+            
             console.log(error.message);
-          });
+          });*/
+} catch (error) {
+  console.error(error)
+}
+       
          
 
     }

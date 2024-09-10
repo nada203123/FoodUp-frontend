@@ -3,30 +3,33 @@ import {useState} from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import Navigationbar from '../../components/Navbar';
 import ResetPass from "../../assets/ResetPass.png"
+import Navigationbar from '../../components/Navbar';
  
 
 
 function ResetPassword(){
     //const { token } = useParams()
     const [password, setPassword] = useState(""); 
-    const [ConfirmPass, setConfirmPass] = useState(""); 
+    
+    const [otp, setOtp] = useState(""); 
+    
+    const [email, setEmail] = useState(""); 
+    
     const [error, setError] = useState('');
     let navigation = useNavigate();
-
+    const token = localStorage.getItem("token")
 
     const handleResetPassword = async (event) => {
         event.preventDefault();
-        if (password !== ConfirmPass) {
-            setError('Passwords do not match');
-            return;
-          }
-      
-      
+        
+        console.log("🚀 ~ handleResetPassword ~ password:", password)
+        console.log("🚀 ~ handleResetPassword ~ otp:", otp)
+        console.log("🚀 ~ handleResetPassword ~ email:", email)
           try {
-            const response = await axios.patch(`http://localhost:4000/auth/resetPassword/${token}`,  { password: password, confirmPassword: ConfirmPass.value });
+            const response = await axios.put(`http://localhost:5198/api/users/reset-password/apply`,  {Email:email,Otp:otp, Password: password });
             console.log(response.data);
+
             navigation('/SignIn');
           } catch (error) {
             console.error('Error:', error);
@@ -53,23 +56,34 @@ function ResetPassword(){
 
               <div className="FieldR"> 
                 <input 
-                  value={password.value} 
+                  value={email} 
                   onChange={(e) => { 
-                    setPassword({ ...password, value: e.target.value }); 
+                    setEmail( e.target.value ); 
                   }} 
-                  placeholder="Password" 
+                  placeholder="Email" 
                 /> 
               </div> 
 
               <div className="FieldR"> 
+              <input 
+                  value={otp} 
+                  type="text" 
+                  onChange={(e) => { 
+                    setOtp(e.target.value ); 
+                  }} 
+                  placeholder="OTP" 
+                />
+                 </div>  
+                <div className="FieldR"> 
                 <input 
-                  value={ConfirmPass.value} 
+                  value={password} 
                   type="password" 
                   onChange={(e) => { 
-                    setConfirmPass({ ...ConfirmPass, value: e.target.value }); 
+                    setPassword( e.target.value ); 
                   }} 
-                  placeholder="Confirm Password" 
+                  placeholder="Password" 
                 /> 
+                
                 
               </div> 
               

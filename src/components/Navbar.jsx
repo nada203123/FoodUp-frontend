@@ -43,24 +43,14 @@ function Navigationbar() {
             {localStorage.getItem('token') && (
               <>
               <li>
-              <NavLink to="/Orders" className="nav-link">My orders</NavLink>
+              <NavLink to="/addCategory" className="nav-link">Add Category</NavLink>
             </li>
-            <li >
-              <div className="dropdown" >
-              <NavLink onClick={handleDropdownClick} className="nav-link" >Profile</NavLink>
-              {isDropdownOpen && (
-              <ul className="dropdown-content">
-                <li>
-                  <NavLink to="/Profile" className="nav-link"><IoIosInformationCircle /> View Profile</NavLink>
-                </li>
-                
-                <li onClick={handelLogout}>
-                  <NavLink to="/SignIn" className="nav-link" ><IoLogOutOutline /> Logout</NavLink>
-                </li>
-              </ul>
-            )}
-            </div>
+              <li>
+              <NavLink to="/addProduct" className="nav-link">Add Product</NavLink>
             </li>
+            <li onClick={handelLogout}>
+                  <NavLink to="/SignIn" className="nav-link" > Logout </NavLink>
+                </li>
             </>
 
             )}
